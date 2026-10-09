@@ -4,37 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ZakatTech 360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/shells.css">
+  <link rel="stylesheet" href="css/public.css">
 </head>
 <body class="shell-public">
-  <header class="topbar">
+  <header class="topbar topbar--public">
     <div class="topbar__inner">
-      <a class="topbar__brand" href="#/" data-nav="#/"><span class="topbar__logo"></span> Pusat Zakat</a>
+      <a class="topbar__brand" href="#/" data-nav="#/">
+        <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.2 5.3L20 6l-3.3 4.6L22 12l-5.3 1.4L20 18l-5.8-1.3L12 22l-2.2-5.3L4 18l3.3-4.6L2 12l5.3-1.4L4 6l5.8 1.3z"/></svg></span>
+        Pusat Zakat
+      </a>
       <nav class="topbar__nav">
         <a href="payer.html#/masuk">Kira</a>
         <a href="portal-bayaran.html" target="_blank" rel="noopener">Bayar</a>
         <a href="#/impak" data-nav="#/impak" data-nav-id="impak">Impak</a>
-        <a href="payer.html#/masuk">Log masuk</a>
+        <a href="payer.html#/tanya">Tanya</a>
       </nav>
+      <div class="topbar__cta">
+        <a class="btn btn--secondary btn--sm btn--pill" href="payer.html#/masuk">Log masuk</a>
+      </div>
     </div>
   </header>
 
   <main id="view"></main>
 
   <footer class="footer">
-    <div class="container row row--between">
-      <div>
-        <div class="footer__official">Pusat Zakat ialah sistem rasmi. Platform ini hanya lapisan digital di atasnya.</div>
-        <div class="small">Bayaran sentiasa diserahkan ke Portal Bayaran Rasmi. Tiada butiran kad dikumpul di sini.</div>
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand"><span class="logo-mark logo-mark--light" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.2 5.3L20 6l-3.3 4.6L22 12l-5.3 1.4L20 18l-5.8-1.3L12 22l-2.2-5.3L4 18l3.3-4.6L2 12l5.3-1.4L4 6l5.8 1.3z"/></svg></span> Pusat Zakat</div>
+          <p class="small mt-2">Pusat Zakat ialah sistem rasmi. Platform ini hanya lapisan digital di atasnya — ia memudahkan, bukan menggantikan.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Pautan</h4>
+          <a href="#" data-nav="#/">Privasi</a>
+          <a href="#" data-nav="#/">Terma</a>
+          <a href="payer.html#/tanya">Hubungi pegawai</a>
+        </div>
+        <div class="footer__col">
+          <h4>Bayaran</h4>
+          <span>Bayaran sentiasa diserahkan ke Portal Bayaran Rasmi.</span>
+          <span>Tiada butiran kad dikumpul di sini.</span>
+        </div>
       </div>
-      <nav class="row">
-        <a href="#" data-nav="#/">Privasi</a>
-        <a href="#" data-nav="#/">Terma</a>
-        <a href="payer.html#/tanya">Hubungi pegawai</a>
-      </nav>
+      <div class="footer__bottom">
+        <span>Pusat Zakat · prototaip · data demo</span>
+        <span>Mudah Bayar, Jelas Manfaat</span>
+      </div>
     </div>
   </footer>
 

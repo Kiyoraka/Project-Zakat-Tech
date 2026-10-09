@@ -436,6 +436,9 @@ body.shell-public .card { border-radius: var(--radius-lg); }
 .shell-public .footer a:hover { color: #fff; }
 .footer__bottom { margin-top: 44px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .12); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: .8rem; color: rgba(255, 255, 255, .55); }
 
+/* ===== Demo bar: bottom-right on the public page so it never covers the Log masuk pill ===== */
+.shell-public .demo-bar { top: auto; bottom: 12px; right: 12px; }
+
 /* ===== Reveal on scroll ===== */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(var(--i, 0) * 80ms); }
 .reveal.in { opacity: 1; transform: none; }
