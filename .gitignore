@@ -1,5 +1,14 @@
-# List of ignore folder and files
-/[Tt]emp/
-# List of ignore files
-*.exe
-*.txt
+# Project Resources (Alice working reference - never commit)
+Project Resources
+
+# Claude Code settings
+.claude/
+
+# Secrets
+.env
+.env.*
+
+# Build artefacts
+node_modules/
+target/
+dist/
