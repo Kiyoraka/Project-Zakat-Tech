@@ -1,5 +1,5 @@
 /* ZakatTech 360 prototype — UI helpers returning HTML strings (plain browser script, defines global UI)
- * Class names follow prototype/css/components.css. Interactive elements use data-action / data-nav. */
+ * Class names follow css/components.css. Interactive elements use data-action / data-nav. */
 const UI = (() => {
   const esc = Fmt.esc;
 

@@ -9,21 +9,20 @@ This folder holds two things:
 | Path | What it is |
 |------|------------|
 | `DESIGN-BRIEF.md` | The design handoff: product summary, eight non-negotiables, 37 views with ASCII wireframes, tokens, data model, seed data, behaviour rules, folder architecture for the real build |
-| `prototype/` | A hardcoded, clickable prototype of all 37 views in plain HTML + CSS + JS — no framework, no build step, no network calls |
+| `index.html` + `*.html`, `css/`, `js/` | A hardcoded, clickable prototype of all 37 views in plain HTML + CSS + JS — no framework, no build step, no network calls |
 
 ## Run the prototype
 
-Open `prototype/index.html` in a browser. Everything works from `file://`.
+Open `index.html` in a browser. Everything works from `file://`.
 
 Some browser extensions refuse `file://` pages; a one-line static server works too:
 
 ```
-cd prototype
 python -m http.server 8090
 # then open http://127.0.0.1:8090/index.html
 ```
 
-`prototype/preview.html` shows a 390 px phone frame and a 1366 px desktop frame side by side (a developer aid, not part of the product).
+`preview.html` shows a 390 px phone frame and a 1366 px desktop frame side by side (a developer aid, not part of the product).
 
 ## Demo accounts
 
@@ -63,7 +62,9 @@ Demo state lives in this browser's `localStorage` (`zt360.demo.v1`) and survives
 ## Prototype layout
 
 ```
-prototype/
+Project Zakat Tech/
+|- DESIGN-BRIEF.md         the design handoff
+|- README.md               this file
 |- index.html              demo account picker
 |- public.html             P1-P3           js/public.js
 |- payer.html              Y1-Y11 + S1-S6  js/payer.js + js/sme.js
