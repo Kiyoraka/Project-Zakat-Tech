@@ -49,10 +49,11 @@ const Router = (() => {
     const root = document.getElementById('view');
     UI.closePanels();
     root.innerHTML = m.view.render(m.params, m.query) || '';
-    document.title = `${m.view.title || m.view.id} · ${SEED.meta.product}`;
+    const title = typeof m.view.title === 'function' ? m.view.title(m.params) : (m.view.title || m.view.id);
+    document.title = `${title} · ${SEED.meta.product}`;
     // shell chrome hooks
     const titleEl = document.getElementById('topbar-title');
-    if (titleEl) titleEl.textContent = typeof m.view.title === 'function' ? m.view.title(m.params) : (m.view.title || '');
+    if (titleEl) titleEl.textContent = title;
     const backEl = document.getElementById('topbar-back');
     if (backEl) { backEl.classList.toggle('hidden', !m.view.back); if (m.view.back) backEl.setAttribute('href', typeof m.view.back === 'function' ? m.view.back(m.params) : m.view.back); }
     document.querySelectorAll('[data-nav-id]').forEach(a => a.classList.toggle('active', a.dataset.navId === m.view.nav));
