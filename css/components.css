@@ -886,4 +886,4 @@ textarea.input { min-height: 96px; resize: vertical; }
 
 /* ===== Demo bar placement: bottom-right so it never covers a top bar; under the bar on the mobile shell ===== */
 .demo-bar { top: auto; bottom: 12px; right: 12px; }
-.shell-mobile .demo-bar { top: 70px; bottom: auto; right: 10px; }
+.shell-mobile .demo-bar { top: 12px; bottom: auto; right: 10px; transform: scale(.88); transform-origin: right top; } /* rides in the forest top bar's empty right side */
