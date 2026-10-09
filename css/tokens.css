@@ -1,19 +1,22 @@
 /* =====================================================================
    ZakatTech 360 - Design tokens
-   Green and white, Islamic style. Status colours are fixed by spec.
+   Deep forest + sand + gold, Islamic geometry, modern typography.
+   Promoted from the public theme layer on Oct 9 2026 so every surface
+   shares one design. Status colours are fixed by spec.
    ===================================================================== */
 
 :root {
   /* ===== Brand ===== */
-  --primary: #0B6B3A;       /* deep emerald: headings, primary buttons, active nav */
-  --primary-soft: #148A4D;  /* hover, secondary emphasis */
-  --primary-deep: #064B29;  /* hero gradient end, officer rail, footer */
-  --accent: #1E8E5A;        /* success, Disahkan / Diterbit, tagline */
-  --accent-soft: #DFF3E8;   /* success backgrounds, KPI tint */
+  --primary-deep: #0F3D2E;  /* forest: hero fields, mobile top bar, officer rail, footers */
+  --primary: #145A3C;       /* emerald: buttons, links, headings on sand, active nav */
+  --primary-soft: #1F7A52;  /* hover, secondary emphasis */
+  --accent: #2E9E6B;        /* success, Disahkan / Diterbit, tagline */
+  --accent-soft: #E3F2EA;   /* success backgrounds, KPI tint, table heads */
   --gold: #C9A227;          /* ornament only - NEVER a status colour */
-  --gold-soft: #F6EEDC;     /* hero ornament fill, illustration backdrop */
+  --gold-soft: #F3E9CF;     /* warm sand: ornament fills, illustration tiles */
+  --gold-line: rgba(201, 162, 39, .45);
 
-  /* ===== Status ===== */
+  /* ===== Status (unchanged by the redesign) ===== */
   --warn: #D97A1A;
   --warn-soft: #FBEBD9;
   --danger: #C8352B;
@@ -21,19 +24,21 @@
 
   /* ===== Surfaces ===== */
   --surface: #FFFFFF;
-  --bg: #F3F8F5;
-  --line: #DCE7E0;
+  --bg: #FAF7F0;            /* sand */
+  --line: #E6E0D2;          /* warm hairline */
   --glass: rgba(255, 255, 255, 0.78); /* hero and KPI tiles ONLY */
 
   /* ===== Text ===== */
-  --text: #10261B;
-  --muted: #5A6E62;
+  --text: #122820;
+  --muted: #5E6E66;
   --grey: #8A9A90;
-  --grey-soft: #EEF2EF;
+  --grey-soft: #F0EDE4;
 
   /* ===== Radius ===== */
-  --radius-card: 12px;
-  --radius-input: 8px;
+  --radius-card: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-input: 10px;
   --radius-chip: 999px;
 
   /* ===== Spacing (8-pt grid) ===== */
@@ -44,19 +49,24 @@
   --space-5: 32px;
   --space-6: 48px;
 
-  /* ===== Typography ===== */
-  --font-body: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-display: Georgia, "Times New Roman", serif;
+  /* ===== Typography (Google Fonts with system fallbacks) ===== */
+  --font-body: "Plus Jakarta Sans", Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --fs-body: 16px;
 
   /* ===== Elevation ===== */
-  --shadow-card: 0 1px 2px rgba(16, 38, 27, .06), 0 4px 16px rgba(16, 38, 27, .06);
-  --shadow-pop: 0 8px 32px rgba(16, 38, 27, .18);
+  --shadow-card: 0 1px 2px rgba(18, 40, 32, .05), 0 8px 24px rgba(18, 40, 32, .06);
+  --shadow-lift: 0 2px 6px rgba(18, 40, 32, .08), 0 18px 48px rgba(18, 40, 32, .14);
+  --shadow-pop: 0 8px 32px rgba(18, 40, 32, .18);
+  --glow: radial-gradient(60% 55% at 18% 8%, rgba(46, 158, 107, .38), transparent 70%);
 
-  /* ===== Patterns: 8-point star (khatam) tile, 48x48 ===== */
+  /* ===== Patterns: 8-point star (khatam) tile, 48x48 - small areas ===== */
   --pattern: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%3E%3Cg%20fill='none'%20stroke='%23C9A227'%20stroke-opacity='0.18'%20stroke-width='1'%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'/%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'%20transform='rotate(45%2024%2024)'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='4'/%3E%3Cpath%20d='M0%200L6%206M48%200L42%206M0%2048L6%2042M48%2048L42%2042'/%3E%3C/g%3E%3C/svg%3E");
   --pattern-light: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%3E%3Cg%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.14'%20stroke-width='1'%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'/%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'%20transform='rotate(45%2024%2024)'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='4'/%3E%3Cpath%20d='M0%200L6%206M48%200L42%206M0%2048L6%2042M48%2048L42%2042'/%3E%3C/g%3E%3C/svg%3E");
+  /* ===== Patterns: girih star-and-cross interlace, 96x96 - fields, rails, footers ===== */
+  --pattern-girih: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='96'%20height='96'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23C9A227'%20stroke-opacity='0.16'%20stroke-width='1'%3E%3Crect%20x='30'%20y='30'%20width='36'%20height='36'/%3E%3Crect%20x='30'%20y='30'%20width='36'%20height='36'%20transform='rotate(45%2048%2048)'/%3E%3Crect%20x='-18'%20y='-18'%20width='36'%20height='36'%20transform='rotate(45%200%200)'/%3E%3Crect%20x='78'%20y='-18'%20width='36'%20height='36'%20transform='rotate(45%2096%200)'/%3E%3Crect%20x='-18'%20y='78'%20width='36'%20height='36'%20transform='rotate(45%200%2096)'/%3E%3Crect%20x='78'%20y='78'%20width='36'%20height='36'%20transform='rotate(45%2096%2096)'/%3E%3Cpath%20d='M48%200v18M48%2078v18M0%2048h18M78%2048h18'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='5'/%3E%3C/g%3E%3C/svg%3E");
+  --pattern-girih-light: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='96'%20height='96'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.10'%20stroke-width='1'%3E%3Crect%20x='30'%20y='30'%20width='36'%20height='36'/%3E%3Crect%20x='30'%20y='30'%20width='36'%20height='36'%20transform='rotate(45%2048%2048)'/%3E%3Crect%20x='-18'%20y='-18'%20width='36'%20height='36'%20transform='rotate(45%200%200)'/%3E%3Crect%20x='78'%20y='-18'%20width='36'%20height='36'%20transform='rotate(45%2096%200)'/%3E%3Crect%20x='-18'%20y='78'%20width='36'%20height='36'%20transform='rotate(45%200%2096)'/%3E%3Crect%20x='78'%20y='78'%20width='36'%20height='36'%20transform='rotate(45%2096%2096)'/%3E%3Cpath%20d='M48%200v18M48%2078v18M0%2048h18M78%2048h18'/%3E%3Ccircle%20cx='48'%20cy='48'%20r='5'/%3E%3C/g%3E%3C/svg%3E");
 
   /* ===== Layout widths ===== */
   --max-public: 1200px;

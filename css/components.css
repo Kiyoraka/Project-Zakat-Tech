@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 16px;
-  border-radius: var(--radius-input);
+  padding: 11px 18px;
+  border-radius: var(--radius-chip);
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.25;
@@ -830,3 +830,60 @@ textarea.input { min-height: 96px; resize: vertical; }
 
 /* ===== Fixed strings ===== */
 .fixed-text { font-style: italic; color: var(--muted); font-size: .8rem; }
+
+/* =====================================================================
+   Shared geometry promoted from the public layer (Oct 9 2026)
+   ===================================================================== */
+/* ===== Eyebrow ===== */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--gold); }
+.eyebrow--light { color: var(--gold-soft); }
+
+/* ===== Octagon badge (icon seat) ===== */
+.octagon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: var(--primary);
+  background-color: var(--gold-soft);
+  background-image: var(--pattern);
+  background-size: 24px 24px;
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  flex-shrink: 0;
+}
+.octagon .icon { width: 22px; height: 22px; }
+.octagon--dark { background-color: rgba(255, 255, 255, .08); color: var(--gold-soft); background-image: none; }
+
+/* ===== Logo mark ===== */
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  background: var(--primary-deep);
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  flex-shrink: 0;
+}
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-mark--light { background: var(--gold-soft); color: var(--primary-deep); }
+.btn--pill { border-radius: var(--radius-chip); }
+
+/* ===== Reveal on scroll ===== */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(var(--i, 0) * 80ms); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+/* ===== Demo bar placement: bottom-right so it never covers a top bar; under the bar on the mobile shell ===== */
+.demo-bar { top: auto; bottom: 12px; right: 12px; }
+.shell-mobile .demo-bar { top: 70px; bottom: auto; right: 10px; }
