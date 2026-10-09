@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portal Bayaran Rasmi (pengganti) · ZakatTech 360</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/shells.css">
+</head>
+<body class="shell-portal">
+  <div class="portal-wrap">
+    <div class="portal-card" id="portal"></div>
+  </div>
+
+  <script src="js/seed-data.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    (function () {
+      Store.load();
+      const params = new URLSearchParams(location.search);
+      const refNo = params.get('ref') || '';
+      const ref = Store.paymentRef(refNo);
+      const host = document.getElementById('portal');
+      if (!ref) {
+        host.innerHTML = `
+          <h2>Portal Bayaran Rasmi</h2>
+          <div class="rule-ornament"></div>
+          <p class="muted">Tiada rujukan bayaran dijumpai. Mulakan daripada skrin Semak dan Bayar dalam aplikasi pembayar.</p>
+          <a class="btn btn--primary" href="payer.html#/kira">Kembali ke aplikasi</a>`;
+        return;
+      }
+      host.innerHTML = `
+        <div class="badge badge--neutral mb-2">halaman pengganti · prototaip</div>
+        <h2>Di sini Portal Bayaran Rasmi akan dibuka</h2>
+        <div class="rule-ornament"></div>
+        <p class="muted">Platform ini <strong>bukan gerbang bayaran</strong> dan tidak pernah mengambil butiran kad. Dalam sistem sebenar, pautan ini membuka portal rasmi Pusat Zakat dengan rujukan di bawah; resit rasmi dikembalikan ke peti resit anda melalui rujukan yang sama.</p>
+        ${UI.kv([
+          { label: 'Rujukan bayaran', value: ref.ref },
+          { label: 'Jenis zakat', value: UI.label(ref.type) },
+          { label: 'Jumlah', value: Fmt.rm(ref.amount), total: true },
+          { label: 'Status', html: UI.badge(ref.status) }
+        ])}
+        <div class="stack mt-3">
+          ${ref.status === 'returned'
+            ? `<a class="btn btn--primary btn--block" href="payer.html#/resit?ref=${encodeURIComponent(ref.ref)}">Resit sudah dikembalikan · buka peti resit</a>`
+            : `<a class="btn btn--primary btn--block" href="payer.html#/resit?ref=${encodeURIComponent(ref.ref)}&balik=resit">Simulasi: bayaran berjaya, kembali dengan resit</a>
+               <a class="btn btn--secondary btn--block" href="payer.html#/resit?ref=${encodeURIComponent(ref.ref)}&balik=tiada">Simulasi: kembali tanpa pengesahan</a>`}
+          <a class="btn btn--ghost btn--block" href="payer.html#/kira/semak">Batal dan kembali</a>
+        </div>
+        <p class="tiny muted mt-3">Kedua-dua serahan dan kepulangan direkod dalam jejak audit dengan id korelasi yang sama.</p>`;
+    })();
+  </script>
+</body>
+</html>

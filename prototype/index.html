@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZakatTech 360 · Demo</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/shells.css">
+</head>
+<body class="shell-picker">
+  <div class="picker">
+    <div class="picker__card">
+      <div class="row row--between mb-2">
+        <div class="topbar__brand"><span class="topbar__logo"></span> ZakatTech 360</div>
+        <span class="badge badge--neutral">prototaip · data demo</span>
+      </div>
+      <h1>Mudah Bayar, Jelas Manfaat</h1>
+      <div class="rule-ornament rule-ornament--left"></div>
+      <p class="muted">Pilih akaun demo untuk masuk ke salah satu daripada empat permukaan. Peranan datang daripada pemilih ini, bukan log masuk sebenar. Tiada bayaran, tiada mesej, tiada data Pusat Zakat sebenar.</p>
+
+      <h3 class="mt-3 mb-1">Akaun demo</h3>
+      <div class="accounts" id="accounts"></div>
+
+      <div class="grid-2 mt-4">
+        <div class="card card--muted">
+          <h4 class="card__title">Apa yang berfungsi</h4>
+          <ul class="small stack--tight">
+            <li>Kalkulator, simpan anggaran, serahan ke Portal Bayaran Rasmi (halaman pengganti) dan resit kembali</li>
+            <li>Kebenaran peringatan diberi / ditarik balik, pendaftaran Skim Potongan Gaji hingga pengesahan HR</li>
+            <li>Pembantu AI dengan jawapan tersedia dan sumber; soalan hukum dieskalasi kepada pegawai</li>
+            <li>Semakan Syariah, penerbitan snapshot (dua orang), proses potongan bulanan, log audit tambah-sahaja</li>
+          </ul>
+        </div>
+        <div class="card card--muted">
+          <h4 class="card__title">Apa yang distub</h4>
+          <ul class="small stack--tight">
+            <li>Identiti, kutipan, bayaran, gaji, WhatsApp dan AI: semua adapter dalam mod <em>stub</em> (lihat Tetapan)</li>
+            <li>Nombor adalah nilai demo daripada brief; bukan angka rasmi</li>
+            <li>Keadaan disimpan dalam pelayar ini (localStorage) dan boleh diset semula</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row row--between mt-4">
+        <span class="small muted" id="state-note"></span>
+        <button type="button" class="btn btn--secondary btn--sm" id="reset">Reset demo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/seed-data.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    (function () {
+      Store.load();
+      const host = document.getElementById('accounts');
+      host.innerHTML = SEED.accounts.map(a => `
+        <a class="account ${a.role === 'public' ? 'account--public' : ''}" href="${a.surface}${a.hash}?acc=${a.key}">
+          <div class="account__avatar">${Fmt.esc(Fmt.initials(a.label))}</div>
+          <div>
+            <div class="account__name">${Fmt.esc(a.label)}</div>
+            <div class="account__role">${Fmt.esc(a.sub || UI.label(a.role))} · ${Fmt.esc(a.surface.replace('.html', ''))}</div>
+          </div>
+        </a>`).join('');
+      const n = Store.auditLog().length;
+      document.getElementById('state-note').textContent = `${n} acara audit dalam keadaan demo semasa`;
+      document.getElementById('reset').addEventListener('click', () => {
+        UI.confirm('Set semula semua data demo kepada nilai asal?', () => {
+          Store.reset();
+          UI.toast('Data demo diset semula', 'ok');
+          document.getElementById('state-note').textContent = `${Store.auditLog().length} acara audit dalam keadaan demo semasa`;
+        }, { yes: 'Reset demo', danger: true });
+      });
+    })();
+  </script>
+</body>
+</html>
