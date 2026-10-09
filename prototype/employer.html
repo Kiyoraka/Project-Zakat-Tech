@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZakatTech 360 · Majikan</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/shells.css">
+</head>
+<body class="shell-employer">
+  <header class="topbar topbar--employer">
+    <div class="topbar__inner">
+      <a class="topbar__brand" href="#/" data-nav="#/"><span class="topbar__logo"></span> <span id="employer-name">Majikan</span></a>
+      <nav class="topbar__nav" id="employer-nav">
+        <a href="#/" data-nav="#/" data-nav-id="dashboard">Dashboard</a>
+        <a href="#/pekerja" data-nav="#/pekerja" data-nav-id="pekerja">Pekerja</a>
+        <a href="#/potongan/tetapan" data-nav="#/potongan/tetapan" data-nav-id="potongan">Potongan</a>
+        <a href="#/laporan" data-nav="#/laporan" data-nav-id="laporan">Laporan</a>
+        <a href="#/kit" data-nav="#/kit" data-nav-id="kit">Kit</a>
+      </nav>
+      <span class="topbar__user" id="employer-user"></span>
+    </div>
+  </header>
+
+  <main id="view" class="container container--1200"></main>
+
+  <script src="js/seed-data.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/employer.js"></script>
+</body>
+</html>

@@ -37,7 +37,7 @@ const SEED = {
       departments: ["Kecemasan", "Farmasi", "Kejururawatan", "Pentadbiran", "Radiologi", "Makmal Patologi"] },
     { id: "EMP-002", name: "Kilang Elektronik (demo)", sector: "factory", size: "100-500", district: "Barat", status: "pending",
       hrName: "Cik Liyana Ramli", hrEmail: "hr@kilangelektronik.demo", ssm: "ok", payrollSystem: "SAP", payDay: 25, fileMethod: "csv",
-      approverName: "En. Daniel Tan", minDeduction: 10, effectiveFrom: "2026-11", submittedAt: "2026-10-06", approvedAt: null,
+      approverName: "En. Daniel Tan", minDeduction: 10, effectiveFrom: "2026-11", submittedAt: "2026-10-06", approvedAt: null, reference: "MJK-7A2F10",
       departments: ["Pengeluaran", "Kawalan Kualiti", "Gudang", "Kejuruteraan", "Sumber Manusia"] },
     { id: "EMP-003", name: "Jabatan Negeri (demo)", sector: "government", size: "100-500", district: "Timur", status: "active",
       hrName: "En. Kamarul Ariffin", hrEmail: "hr@jabatannegeri.demo", ssm: "ok", payrollSystem: "SAGA", payDay: 25, fileMethod: "csv",
@@ -45,7 +45,7 @@ const SEED = {
       departments: ["Pentadbiran", "Kewangan", "Perancangan", "Teknologi Maklumat"] },
     { id: "EMP-004", name: "Kilang XYZ (demo)", sector: "factory", size: "100-500", district: "Utara", status: "pending",
       hrName: "En. Rizal Hamdan", hrEmail: "hr@kilangxyz.demo", ssm: "?", payrollSystem: "Manual", payDay: 25, fileMethod: "csv",
-      approverName: "Pn. Juliana Mat", minDeduction: 10, effectiveFrom: "2026-11", submittedAt: "2026-10-08", approvedAt: null,
+      approverName: "Pn. Juliana Mat", minDeduction: 10, effectiveFrom: "2026-11", submittedAt: "2026-10-08", approvedAt: null, reference: "MJK-9C41B8",
       departments: ["Pengeluaran", "Pembungkusan", "Penyelenggaraan", "Pentadbiran"] }
   ],
 
