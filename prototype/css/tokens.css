@@ -1,0 +1,79 @@
+/* =====================================================================
+   ZakatTech 360 - Design tokens
+   Green and white, Islamic style. Status colours are fixed by spec.
+   ===================================================================== */
+
+:root {
+  /* ===== Brand ===== */
+  --primary: #0B6B3A;       /* deep emerald: headings, primary buttons, active nav */
+  --primary-soft: #148A4D;  /* hover, secondary emphasis */
+  --primary-deep: #064B29;  /* hero gradient end, officer rail, footer */
+  --accent: #1E8E5A;        /* success, Disahkan / Diterbit, tagline */
+  --accent-soft: #DFF3E8;   /* success backgrounds, KPI tint */
+  --gold: #C9A227;          /* ornament only - NEVER a status colour */
+  --gold-soft: #F6EEDC;     /* hero ornament fill, illustration backdrop */
+
+  /* ===== Status ===== */
+  --warn: #D97A1A;
+  --warn-soft: #FBEBD9;
+  --danger: #C8352B;
+  --danger-soft: #F9E0DD;
+
+  /* ===== Surfaces ===== */
+  --surface: #FFFFFF;
+  --bg: #F3F8F5;
+  --line: #DCE7E0;
+  --glass: rgba(255, 255, 255, 0.78); /* hero and KPI tiles ONLY */
+
+  /* ===== Text ===== */
+  --text: #10261B;
+  --muted: #5A6E62;
+  --grey: #8A9A90;
+  --grey-soft: #EEF2EF;
+
+  /* ===== Radius ===== */
+  --radius-card: 12px;
+  --radius-input: 8px;
+  --radius-chip: 999px;
+
+  /* ===== Spacing (8-pt grid) ===== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+
+  /* ===== Typography ===== */
+  --font-body: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --fs-body: 16px;
+
+  /* ===== Elevation ===== */
+  --shadow-card: 0 1px 2px rgba(16, 38, 27, .06), 0 4px 16px rgba(16, 38, 27, .06);
+  --shadow-pop: 0 8px 32px rgba(16, 38, 27, .18);
+
+  /* ===== Patterns: 8-point star (khatam) tile, 48x48 ===== */
+  --pattern: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%3E%3Cg%20fill='none'%20stroke='%23C9A227'%20stroke-opacity='0.18'%20stroke-width='1'%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'/%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'%20transform='rotate(45%2024%2024)'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='4'/%3E%3Cpath%20d='M0%200L6%206M48%200L42%206M0%2048L6%2042M48%2048L42%2042'/%3E%3C/g%3E%3C/svg%3E");
+  --pattern-light: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%3E%3Cg%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.14'%20stroke-width='1'%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'/%3E%3Crect%20x='14'%20y='14'%20width='20'%20height='20'%20transform='rotate(45%2024%2024)'/%3E%3Ccircle%20cx='24'%20cy='24'%20r='4'/%3E%3Cpath%20d='M0%200L6%206M48%200L42%206M0%2048L6%2042M48%2048L42%2042'/%3E%3C/g%3E%3C/svg%3E");
+
+  /* ===== Layout widths ===== */
+  --max-public: 1200px;
+  --max-employer: 1200px;
+  --max-officer: 1360px;
+  --max-mobile: 480px;
+
+  /* ===== Motion ===== */
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --dur: .2s;
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
