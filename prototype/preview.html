@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZakatTech 360 · Pratonton</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    body { background: var(--bg); padding: 16px; }
+    .frames { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+    .frame { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: var(--shadow-card); overflow: hidden; }
+    .frame__bar { display: flex; gap: 8px; align-items: center; padding: 8px 12px; border-bottom: 1px solid var(--line); font-size: .8rem; }
+    .frame__bar input { flex: 1; font: inherit; padding: 4px 8px; border: 1px solid var(--line); border-radius: var(--radius-input); }
+    iframe { border: 0; display: block; background: #fff; }
+    .frame--phone iframe { width: 390px; height: 844px; }
+    .frame--desktop iframe { width: 1366px; height: 768px; max-width: calc(100vw - 48px); }
+  </style>
+</head>
+<body>
+  <div class="row row--between mb-2">
+    <div><h2>Pratonton peranti</h2><div class="small muted">Lebar tetap 390 px (telefon) dan 1366 px (meja). Alat pembangunan, bukan sebahagian daripada prototaip.</div></div>
+    <a class="btn btn--secondary btn--sm" href="index.html">Pemilih akaun</a>
+  </div>
+  <div class="frames">
+    <div class="frame frame--phone">
+      <div class="frame__bar">390 × 844 <input id="u1" value="payer.html#/?acc=ahmad"><button class="btn btn--sm btn--primary" data-go="1">Buka</button></div>
+      <iframe id="f1" src="payer.html#/?acc=ahmad" title="telefon"></iframe>
+    </div>
+    <div class="frame frame--desktop">
+      <div class="frame__bar">1366 × 768 <input id="u2" value="officer.html#/?acc=aminah"><button class="btn btn--sm btn--primary" data-go="2">Buka</button></div>
+      <iframe id="f2" src="officer.html#/?acc=aminah" title="meja"></iframe>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => {
+      const n = b.dataset.go; document.getElementById('f' + n).src = document.getElementById('u' + n).value;
+    }));
+  </script>
+</body>
+</html>
