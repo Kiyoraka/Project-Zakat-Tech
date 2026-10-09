@@ -398,6 +398,13 @@ const Store = (() => {
     audit({ entity: 'appointment', entityId: `${officerId}/${date}/${time}`, action: slot.status === 'blocked' ? 'slot_blocked' : 'slot_unblocked' });
     return slot;
   }
+  function linkAppointmentCase(aptId, caseId) {
+    const a = appointment(aptId); const c = smeCase(caseId);
+    if (!a || !c) return;
+    a.caseId = caseId;
+    if (!c.officerId) { c.officerId = a.officerId; if (c.status === 'new') c.status = 'in_progress'; }
+    audit({ entity: 'appointment', entityId: aptId, action: 'case_linked', detail: caseId });
+  }
   function rescheduleAppointment(id, date, time) {
     const st = S();
     const a = appointment(id); if (!a) return;
@@ -527,8 +534,10 @@ const Store = (() => {
       const est = Math.round(byDistrict[d] * (byProgram[p] / base.kpi.distribution) / 1000);
       if (est < threshold * 2) hiddenCells.push(`${d}/${p}`);
     }));
+    // a period that already has a published snapshot gets a suffixed id (SNAP-2026-09-2) so the correction never overwrites it
+    const taken = st.snapshots.filter(s => s.period === period && s.status === 'published').length;
     const snap = {
-      id: `SNAP-${period}`, period, status: 'generated', generatedBy: actorInfo().actorId, generatedAt: Fmt.nowIso(),
+      id: `SNAP-${period}` + (taken ? `-${taken + 1}` : ''), period, status: 'generated', generatedBy: actorInfo().actorId, generatedAt: Fmt.nowIso(),
       approvedBy: null, approvedAt: null, publishedAt: null, publishedBy: null, threshold,
       kpi: { collection: Math.round(base.kpi.collection * factor), distribution: Math.round(base.kpi.distribution * factor), asnafSupported: Math.round(base.kpi.asnafSupported * factor), repeatPayers: Math.min(0.95, +(base.kpi.repeatPayers + 0.01).toFixed(2)) },
       byDistrict, byProgram, hiddenCells,
@@ -589,7 +598,7 @@ const Store = (() => {
     requestEnrolment, updateEnrolmentAmount, stopEnrolment, confirmEnrolment, inviteEmployee,
     saveEmployerDraft, submitEmployer, approveEmployer, requestDocs, suspendEmployer, saveDeductionSettings, toggleChecklist,
     createRun, confirmRun,
-    createSmeCase, bookAppointment, requestCallback, assignCase, verifyCase, correctCase, referCase, addCaseMessage, blockSlot, rescheduleAppointment,
+    createSmeCase, bookAppointment, requestCallback, assignCase, verifyCase, correctCase, referCase, addCaseMessage, blockSlot, linkAppointmentCase, rescheduleAppointment,
     assistantAsk, createEscalation, requestOfficer, answerEscalation, closeEscalation,
     createDraft, draftFaqFromEscalation, submitForReview, approveKnowledge, rejectKnowledge, publishKnowledge, updateKnowledgeBody,
     generateSnapshot, submitSnapshot, publishSnapshot, updateSettings
